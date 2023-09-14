@@ -1,0 +1,31 @@
+<mvc:View 
+controllerName="usermanager.controller.detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>lbPageDetails}" showNavButton="true" navButtonPress=".onNavBack">
+        <FlexBox direction="Column" id='userDetails' class="details">
+            <Text text="{i18n>lbFirstName}: " id='lbFirstName' class='label'></Text>
+            <Text text="{user>firstName}" id='firstName'/>
+            <Text text="{i18n>lbLastName}: " id='lbLastName' class='label'></Text>
+            <Text text="{user>lastName}" id='lastName'/>
+            <Text text="{i18n>lbYears}: " id='lbYears' class='label'></Text>
+            <Text text="{
+                    path: 'user>birthday',
+                    formatter: '.formatter.getYears'    
+                }" id='birthday'/>
+            <Text class='label' text="{i18n>lbCpf}: " id='lbCpf'> </Text>
+            <Text text="{user>cpf}" id='cpf'/>
+            <Text class='label' text="{i18n>lbStreet}: " id='lbStreet'></Text>
+            <Text text="{user>address/street}" id='street'/>
+            <Text class='label' text="{i18n>lbNum}: " id='lbNum'></Text>
+            <Text text="{user>address/num}" id='num'/>
+            <Text class='label' text="{i18n>lbNeiborhood}: " id='lbNeiborhood'></Text>
+            <Text text="{user>address/neiborhood}" id='neiborhood'/>
+            <Text class='label' text="{i18n>lbCep}: " id='lbCep'></Text>
+            <Text text="{user>address/cep}" id='cep'/>
+            <FlexBox id='containerBtn' justifyContent="End">
+                <Button text="{i18n>lbButtonDetails}" id="btnEdit" press="onEdit" class="btn"/>
+            </FlexBox>
+        </FlexBox>
+    </Page>
+</mvc:View>

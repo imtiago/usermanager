@@ -1,0 +1,49 @@
+<mvc:View controllerName="usermanager.controller.users"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Toolbar id='toolbar'>
+            <Title text="{i18n>userListTitle}" id='titleToolbar'/>
+            <ToolbarSpacer id="spaceToolbar"/>
+            <SearchField
+                id="filedToolbar"
+                width="50%"
+                search=".onFilterUsers"
+                ariaLabelledBy="searchFieldLabel"
+                ariaDescribedBy="searchFieldDescription"
+                placeholder="{i18n>searchFieldPlaceHolder}"/>
+        </Toolbar>
+        <Table id="userList"
+            class="saUiResponsiveMargin"
+            width="auto"
+            items="{path: 'user>/Users', sorter: {path: 'firstName'}}"
+        >
+            <columns>
+                <Column id="columnOne">
+                    <Text text="{i18n>labelCollumFisrtName}" id="TextOne"/>
+                </Column>
+                <Column id="columnTwo">
+                    <Text text="{i18n>labelCollumLastName}" id="TextTwo"/>
+                </Column>
+                <Column id="columnThree">
+                    <Text text="{i18n>labelCollumYearsOld}" id="TextOneThree"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem
+                    id="rows"
+                    type="Navigation"
+                    press=".onPress">
+                    <cells>
+                        <Text text="{path: 'user>firstName'}" id='firstName'/>
+                        <Text text="{path: 'user>lastName'}" id='lastName'/>
+                        <Text text="{
+                            path: 'user>birthday',
+                            formatter: '.formatter.getYears'    
+                        }" id='years'/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>

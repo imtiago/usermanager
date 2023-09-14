@@ -1,0 +1,131 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "usermanager",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.10.6",
+      "toolsId": "63c7d1a2-62af-4d67-8a3d-2ec844731b1d"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.118.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "usermanager.i18n.i18n"
+        }
+      },
+      "user": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "Users.json"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "usermanager.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "Routeusers",
+          "pattern": ":?query:",
+          "target": ["Targetusers"]
+        },
+        {
+          "name": "detail",
+          "pattern": "detail/{userPath}",
+          "target": "detail"
+        },
+        {
+          "name": "edit",
+          "pattern": "edit/{userPath}",
+          "target": "edit"
+        }
+      ],
+      "targets": {
+        "Targetusers": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "users",
+          "viewName": "users"
+        },
+        "detail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "detail",
+          "viewName": "detail"
+        },
+        "edit": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "edit",
+          "viewName": "edit"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "usermanager.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

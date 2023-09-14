@@ -1,0 +1,17 @@
+/* Enter your custom styles here */
+.details {
+  padding: 2rem;
+  border: 1px solid;
+}
+.form {
+  padding: 2rem 0rem;
+}
+
+.btn {
+  min-width: 10rem;
+}
+
+.label {
+  font-weight: bold;
+  text-transform: capitalize;
+}

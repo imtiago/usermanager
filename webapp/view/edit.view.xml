@@ -1,0 +1,22 @@
+<mvc:View 
+controllerName="usermanager.controller.edit"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>lbButtonDetails}" showNavButton="true" navButtonPress=".onNavBack">
+        <FlexBox id="formEdit" direction="Column" class="form">
+            <FlexBox id="form" direction="Column">
+                <Input id="firstName" value="{user>firstName}" type='Text'/>
+                <Input id="lastName" value="{user>lastName}" type='Text'/>
+                <Input id="birthday" value="{user>birthday}" type='Date'/>
+                <Input id="cpf" value="{user>cpf}" type='Number'/>
+                <Input id="street" value="{user>address/street}" type='Text'/>
+                <Input id="num" value="{user>address/num}" type='Number'/>
+                <Input id="neiborhood" value="{user>address/neiborhood}" />
+                <Input id="cep" value="{user>address/cep}" type='Number'/>
+            </FlexBox>
+            <FlexBox id='containerBtn' justifyContent="End">
+                <Button text="{i18n>lbButtonSave}" id="btnSave" press="onSave" class="btn"/>
+            </FlexBox>
+        </FlexBox>
+    </Page>
+</mvc:View>
